@@ -2,35 +2,98 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Grimm-N">
+  <!-- favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | 3-column preview card component</title>
+  <!-- styles -->
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="styles.css">
+  <!-- title -->
+  <title>Frontend Mentor | 3-column preview card component by Grimm-N</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
-  
-  Sedans
-  Choose a sedan for its affordability and excellent fuel economy. Ideal for cruising in the city 
-  or on your next road trip.
 
-  SUVs
-  Take an SUV for its spacious interior, power, and versatility. Perfect for your next family vacation 
-  and off-road adventures.
-
-  Luxury
-  Cruise in the best car brands without the bloated prices. Enjoy the enhanced comfort of a luxury 
-  rental and arrive in style.
+  <div class="card"> <!-- cards -->
+    <!-- card 1 -->
+    <div class="card__item card__item--yellow" id="card-1">
+      <div class="card__item-inner">
+        <div class="card__item-before">
+          <div class="card__item-before-icon">
+            <img src="./images/icon-sedans.svg" alt="Icon of a sedan car">
+          </div>
+          <h3 class="card__item-before-title">Sedans</h3>
+          <p class="card__item-before-content">Choose a sedan for its affordability and excellent fuel economy. Ideal for cruising in the city 
+            or on your next road trip.</p>
+          <button class="card__item-before-btn card__item-before-btn--yellow" onclick="toggleCard('card-1')">Learn More</button>
+        </div>
+        <div class="card__item-after">
+          <span class="card__item-after-close card__item-after-close--yellow" onclick="toggleCard('card-1')">
+            <svg class="close__icon close__icon--yellow" width="800px" height="800px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#000000"><polyline points="40 24 32 32 40 40"/><polyline points="32 24 24 32 32 40"/></svg>
+          </span>
+          <h3 class="card__item-after-title">Sedans</h3>
+          <p class="card__item-after-content">Sedans provide affordability and excellent fuel efficiency, making them great for city drives and road trips. Their smooth handling and modern amenities ensure comfort and practicality.</p>
+          <button class="card__item-after-btn card__item-after-btn--yellow">Rent Now</button>
+        </div>
+      </div>
+      
+    </div>
+    <!-- card 2 -->
+    <div class="card__item card__item--cyan" id="card-2">
+      <div class="card__item-inner">
+        <div class="card__item-before">
+          <div class="card__item-before-icon">
+            <img src="./images/icon-suvs.svg" alt="Icon of a suvs car">
+          </div>
+          <h3 class="card__item-before-title">SUVs</h3>
+          <p class="card__item-before-content">Take an SUV for its spacious interior, power, and versatility. Perfect for your next family vacation 
+            and off-road adventures.</p>
+          <button class="card__item-before-btn card__item-before-btn--cyan" onclick="toggleCard('card-2')">Learn More</button>
+        </div>
+        <div class="card__item-after">
+          <span class="card__item-after-close card__item-after-close--cyan" onclick="toggleCard('card-2')">
+            <svg class="close__icon close__icon--cyan" width="800px" height="800px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#000000"><polyline points="40 24 32 32 40 40"/><polyline points="32 24 24 32 32 40"/></svg>
+          </span>
+          <h3 class="card__item-after-title">SUVs</h3>
+          <p class="card__item-after-content">SUVs offer a spacious interior and versatility, perfect for family trips and off-road adventures. With advanced safety features, they guarantee a comfortable ride.</p>
+          <button class="card__item-after-btn card__item-after-btn--cyan">Rent Now</button>
+        </div>
+      </div>
+      
+    </div>
+      
+    <!-- card 3 -->
+    <div class="card__item card__item--green" id="card-3">
+      <div class="card__item-inner">
+        <div class="card__item-before">
+          <div class="card__item-before-icon">
+            <img src="./images/icon-luxury.svg" alt="Icon of a luxury car">
+          </div>
+          <h3 class="card__item-before-title">Luxury</h3>
+          <p class="card__item-before-content">Cruise in the best car brands without the bloated prices. Enjoy the enhanced comfort of a luxury 
+            rental and arrive in style.</p>
+          <button class="card__item-before-btn card__item-before-btn--green" onclick="toggleCard('card-3')">Learn More</button>
+        </div> 
+        <div class="card__item-after">
+          <span class="card__item-after-close" onclick="toggleCard('card-3')">
+            <svg class="close__icon close__icon--green" width="800px" height="800px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#000000"><polyline points="40 24 32 32 40 40"/><polyline points="32 24 24 32 32 40"/></svg>
+          </span>
+          <h3 class="card__item-after-title">Luxury</h3>
+          <p class="card__item-after-content">Luxury rentals let you experience premium brands without the inflated costs. Enjoy stylish designs and cutting-edge technology, ensuring you arrive comfortably and in style.</p>
+          <button class="card__item-after-btn card__item-after-btn--green">Rent Now</button>
+        </div>
+      </div>
+      
+    </div>
+      
+  </div> <!-- cards closed -->
   
-  <div class="attribution">
+  <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+    Coded by <a href="#https://www.frontendmentor.io/profile/Grimm-N">Grimm-N</a>.
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
