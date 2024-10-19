@@ -1,0 +1,337 @@
+// fonts
+@font-face {
+    font-family: 'Lexend Deca';
+    src: url('./fonts/LexendDeca-VariableFont_wght.ttf') format('truetype'),
+        url('./fonts/LexendDeca-Regular.woff') format('woff'),
+        url('./fonts/LexendDeca-Regular.woff2') format('woff2');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Big Shoulders Display';
+    src: url('./fonts/BigShouldersDisplay-VariableFont_wght.ttf') format('truetype'),
+        url('./fonts/BigShouldersDisplay-Thin.woff') format('woff'),
+        url('./fonts/BigShouldersDisplay-Thin.woff2') format('woff2');
+    font-weight: 700;
+}
+
+// variables
+$bright-orange: hsl(31, 77%, 52%);
+$icon-yellow: hsla(40, 100%, 63%, 0.75);
+$dark-cyan: hsl(184, 100%, 22%);
+$icon-cyan: hsla(182, 79%, 45%, 0.75);
+$very-dark-cyan: hsl(179, 100%, 13%);
+$icon-green: hsla(173, 78%, 43%, 0.75);
+$transparent-white: hsla(0, 0%, 100%, 0.75);
+$transparent-black: hsla(0, 0%, 0%, 0.2);
+$very-light-gray: hsl(0, 0%, 95%);
+$black-color: hsla(0, 0%, 0%, 0.7);
+$body-font: 'Lexend Deca';
+$title-font: 'Big Shoulders Display';
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0; 
+        transform: scale(1); 
+    }
+    50% {
+        opacity: 0; 
+        transform: scale(0.9); 
+    }
+    100% {
+        opacity: 1; 
+        transform: scale(1);
+    }
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $body-font;
+    font-size: 1em;
+    background-image: url('./images/bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    .card {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 61.6em;
+        max-width: 100%;
+        height: 33.334em;
+        max-height: 100%;
+        border-radius: 0.6em;
+        margin: 0 1.5em;
+
+        @media (max-width: 61rem) {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3, 1fr);
+            justify-items: center;
+            align-self: center;
+            height: 100%;
+            margin: 3rem 1.5rem;
+        }
+
+        &__item {
+            display: flex;
+            width: 20.54rem;
+            max-width: 100%;
+            height: auto;
+            max-height: 100%;
+            padding: 3.2em;
+            opacity: 0; 
+            animation: fadeIn 0.75s ease-in-out forwards; 
+            transition: all 0.5s ease;
+            overflow: hidden;
+            position: relative;
+            perspective: 66.66rem;
+
+            @media (max-width: 61rem) {
+                width: 21.87rem;
+                height: 29.6rem;
+            }
+
+            &-inner {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                transition: transform 0.6s; 
+                transform-style: preserve-3d; 
+              }
+
+            &.open .card__item-before {
+                display: none;
+                opacity: 0;
+            }
+
+            &-before,
+            &-after {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden; 
+            }
+
+            &-before {
+                display: flex;
+                flex-direction: column;
+                transition: opacity 0.3s ease;
+
+                &-icon {
+                    margin-bottom: 2.8rem;
+                }
+
+                &-title {
+                    font-family: $title-font;
+                    font-size: 2.75em;
+                    text-transform: uppercase;
+                    color: $very-light-gray;
+                    padding: 0;
+                    margin-bottom: 2rem;
+                }
+    
+                &-content {
+                    color: $transparent-white;
+                    line-height: 1.6;
+                }
+    
+                &-btn {
+                    margin-bottom: 0;
+                    margin-top: auto;
+                    align-self: flex-start;
+                    padding: 0.9rem 2rem;
+                    border-radius: 5rem;
+                    border: 0.15rem solid $very-light-gray;;
+                    background-color: $very-light-gray;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease, color 0.3 ease, border 0.3s ease;
+    
+                    &:hover {
+                        background-color: transparent;
+                        color: $very-light-gray;
+                        border: 0.15rem solid $very-light-gray;
+                    }
+    
+                    &--yellow {
+                        color: $bright-orange;
+                    }
+    
+                    &--cyan {
+                        color: $dark-cyan;
+                    }
+                    
+                    &--green {
+                        color: $very-dark-cyan;
+                    }
+                }
+            }
+
+            &--yellow {
+                grid-column: 1;
+                border-radius: 0.6em 0 0 0.6em;
+                background-color: $bright-orange;
+                animation-delay: 0.3s;
+
+                @media (max-width: 61rem) {
+                    grid-column: 1;
+                    grid-row: 1;
+                    border-radius: 0.6em 0.6em 0 0;
+                }
+            }
+
+            &--cyan {
+                grid-column: 2;
+                background-color: $dark-cyan;
+                transition-delay: 0.2s;
+                animation-delay: 0.6s;
+
+                @media (max-width: 61rem) {
+                    grid-column: 1;
+                    grid-row: 2;
+                }
+            }
+
+            &--green {
+                grid-column: 3;
+                border-radius: 0 0.6em 0.6em 0;
+                background-color: $very-dark-cyan;
+                transition-delay: 0.4s;
+                animation-delay: 0.9s;
+
+                @media (max-width: 61rem) {
+                    grid-column: 1;
+                    grid-row: 3;
+                    border-radius: 0 0 0.6em 0.6em;
+                }
+            }
+
+            &.open .card__item-after {
+                display: flex;
+                opacity: 1;
+            }
+
+            &.open .card__item-inner {
+                transform: rotateY(180deg);
+            }
+
+            &-after {
+                display: none;
+                flex-direction: column;
+                grid: 1 / span 3;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                transform: rotateY(180deg);
+
+                &-close {
+                    padding: 0;
+                    margin-bottom: 2.8rem;
+                    cursor: pointer;
+
+                    @media (max-width: 61rem) {
+                        display: none;
+                    }
+
+                    .close__icon {
+                        width: 2.75rem; 
+                        height: 2.75rem; 
+                        border-radius: 50%;
+                        fill: none; 
+                        stroke: $transparent-white;
+                        transition: stroke 0.3s; 
+                        background-color: $transparent-black;
+                        stroke: $very-light-gray;
+
+                        &--yellow {
+                            &:hover {
+                                stroke: $black-color;
+                                background-color: $icon-yellow;
+                            }
+                        }
+
+                        &--cyan {
+                            &:hover {
+                                stroke: $black-color;
+                                background-color: $icon-cyan;
+                            }
+                        }
+
+                        &--green {
+                            &:hover {
+                                stroke: $black-color;
+                                background-color: $icon-green;
+                            }
+                        }                                                  
+                    }
+                }
+
+                &-title {
+                    font-family: "Big Shoulders Display";
+                    font-size: 2.75em;
+                    color: $very-light-gray;
+                    text-transform: uppercase;
+                    text-align: left;
+                    margin-bottom: 2rem;
+                }
+
+                &-content {
+                    color: $transparent-white;
+                    line-height: 1.6;
+                    text-align: left;
+                }
+
+                &-btn {
+                    margin-bottom: 0;
+                    margin-top: auto;
+                    justify-self: flex-end;
+                    align-self: flex-start;
+                    padding: 0.9rem 2rem;
+                    border-radius: 5rem;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease, color 0.3 ease, border 0.3s ease;
+
+                    &--yellow {
+                        background-color: $icon-yellow;
+                        border: 0.15rem solid $icon-yellow;
+                        color: $black-color;
+                    }
+
+                    &--cyan {
+                        background-color: $icon-cyan;
+                        border: 0.15rem solid $icon-cyan;
+                        color: $black-color;
+                    }
+
+                    &--green {
+                        background-color: $icon-green;
+                        border: 0.15rem solid $icon-green;
+                        color: $black-color;
+                    }
+    
+                    &:hover {
+                        background-color: $very-light-gray;
+                        color: $very-light-gray;
+                        border: 0.15rem solid $very-light-gray;
+                    }
+    
+                    &--yellow:hover {
+                        color: $bright-orange;
+                    }
+
+                    &--cyan:hover {
+                        color: $dark-cyan;
+                    }
+                    
+                    &--green:hover {
+                        color: $very-dark-cyan;
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        display: none;
+    }
+}
